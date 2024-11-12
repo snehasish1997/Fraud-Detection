@@ -1,0 +1,24 @@
+data_path: "data/sample_transactions.json"
+kafka:
+  topic: "transaction_topic"
+  bootstrap_servers: "localhost:9092"
+spark:
+  master: "local[*]"                           # For Spark local mode
+  app_name: "FraudDetection"
+model_path: "src/model/fraud_detection_model"
+
+
+paypal:
+  client_id: "pk_test_51QEiVJHCstjKj9g5RKDFgYqIsVtQE11U2rlaoPe0T7PoijmCrachJGUDVvuwQ9hhe8UvCoc5lpQuujvHYFv8s4kM00vzEHdgby" #"ASl9xPW2pNTaJll18ZSmMtBFrfjK6Ge4CX4x8WnYkNsCqLy1nvtNkpU9umxYr2HTynnkoQchnkbr7Qmv"                 #CLIENT_ID
+  client_secret: "sk_test_51QEiVJHCstjKj9g5W251cKGLDPkXqKwKB3SF9rs2Z8xRJuEpZloNGNz0kp44dNcB3WC0YFAwsFO56dSsfWxyelXJ00zLzGcLoA" #"EForhZbmtaeOtQJGyuQX5TfaB91N_gZeYN4aV_BQ65DAhUToEi6SSbRjchwIifOSxjfo0M4yl24gX8NF"             #CLIENT_SECRET
+
+
+features: 
+  - "transaction_amount"
+  - "amount_deviation"
+  - "location_anomaly"
+  - "device_change"
+  - "velocity"
+  - "user_avg_transaction"
+  - "user_std_transaction"
+  - "time_of_day"                               # Additional feature
