@@ -32,7 +32,7 @@ def fetch_data_from_stripe():
             'transaction_amount': charge['amount'] / 100.0,  # Convert from cents to dollars
             'currency': charge['currency'],
             'device_info': charge['payment_method_details']['type'] if 'payment_method_details' in charge else "unknown",
-            'location_lat': None,  # Stripe API does not provide location; set as None or use placeholder
+            'location_lat': None,  # as we know Stripe API does not provide location; so im setting as None or use placeholder
             'location_long': None  # Same as above
         })
 
